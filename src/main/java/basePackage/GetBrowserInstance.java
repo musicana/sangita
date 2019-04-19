@@ -79,15 +79,25 @@ public class GetBrowserInstance  {
 	}
 	//Function to launch Chrome.
 	private WebDriver chrome() {
-		
+
 		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\Drivers\\chromedriver.exe");
 		ChromeOptions options = new ChromeOptions();
-	//	DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+		//	DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 		options.addArguments("incognito");
 		options.addArguments("disable-extensions");
 		options.addArguments("--start-maximized");
+
 		options.addArguments("disable-infobars");
 		options.setCapability(ChromeOptions.CAPABILITY, options);
+
+
+		options.addArguments("--verbose");
+		options.addArguments("--whitelisted-ips=''");
+		
+
+
+
+
 		WebDriver driver = new ChromeDriver(options);
 
 		options.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR,UnexpectedAlertBehaviour.IGNORE);

@@ -6,42 +6,90 @@
 	<groupId>VitToPrint</groupId>
 	<artifactId>MyMediaAutomation</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-<name>MyMediaAutomation</name>
-	
-	
+	<name>MyMediaAutomation</name>
+
+
+	<url>http://maven.apache.org</url>
 	<properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-   </properties>
-	
+		<jre.level>1.8</jre.level>
+		<jdk.level>1.8</jdk.level>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+	</properties>
+
+
 	<build>
-	<plugins>
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-surefire-plugin</artifactId>
-			<version>3.0.0-M3</version>
-			<configuration>
-				<suiteXmlFiles>
-					<suiteXmlFile>testng.xml</suiteXmlFile>
-				</suiteXmlFiles>
-			</configuration>
-		</plugin>
 
-		<plugin>
-		
-			<artifactId>maven-compiler-plugin</artifactId>
-			<configuration>
-				<source>1.8</source>
-				<target>1.8</target>
-			</configuration>
-		</plugin>
-	</plugins>
-	
+
+		<plugins>
+			<!-- Compiler plug-in -->
+
+			<!-- Below plug-in is used to execute tests -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18.1</version>
+				<configuration>
+					<suiteXmlFiles>
+						<!-- TestNG suite XML files -->
+						<suiteXmlFile>testng.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.1</version>
+				<executions>
+					<execution>
+						<id>id.pre-clean</id>
+						<phase>pre-clean</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>
+								<echo>in pre-clean phase</echo>
+							</tasks>
+						</configuration>
+					</execution>
+					<execution>
+						<id>id.clean</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>
+								<echo>in clean phase</echo>
+							</tasks>
+						</configuration>
+					</execution>
+					<execution>
+						<id>id.post-clean</id>
+						<phase>post-clean</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>
+								<echo>in post-clean phase</echo>
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+
+
+
+
+		</plugins>
 	</build>
-
-
-
 	<dependencies>
-
 
 
 
@@ -50,7 +98,15 @@
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>3.14.0</version>
+			<version>3.141.59</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-chrome-driver</artifactId>
+			<version>3.141.59</version>
 		</dependency>
 
 
@@ -86,7 +142,7 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
-			<scope>test</scope>
+
 		</dependency>
 
 
@@ -106,8 +162,7 @@
 		</dependency>
 
 
-
-
+		<!-- https://mvnrepository.com/artifact/com.relevantcodes/extentreports -->
 		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
 		<dependency>
 			<groupId>org.testng</groupId>
@@ -117,7 +172,14 @@
 		</dependency>
 
 
-		<!-- https://mvnrepository.com/artifact/com.relevantcodes/extentreports -->
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.8.0</version>
+		</dependency>
+
+
 
 
 		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
@@ -153,5 +215,7 @@
 	</dependencies>
 
 
+
 </project>
- 		 
+
+	 		 

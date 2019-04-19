@@ -1,6 +1,8 @@
 package testcases;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -10,6 +12,7 @@ import basePackage.GetBrowserInstance;
 import utils.ExtentLoging;
 import utils.ExtentReport;
 
+@Listeners(utils.ListenerTest.class)
 public class LoginGmail extends GetBrowserInstance {
 
 	GetBrowserInstance browser = new GetBrowserInstance();
@@ -28,21 +31,25 @@ public class LoginGmail extends GetBrowserInstance {
 		driver = browser.getBrowser();
 
 	}
+	
 	@Test
 	public void login() throws Exception {
 		try {
 
 
 			testStep = "Login";
-		System.out.println("logged in");
+			driver.get("https://www.gmail.com");
+
 			el.passLog(testStep, report, logger);
-
-
-
+	
 		}
 		catch(Exception e)
-		{
-System.out.println("success");
-		}}
-}
+		{	
+
+			el.updateTestStep(this.testStep, this.report, this.logger, driver);
+			el.sendScreenShotOnFailure(this.testStep, this.report, this.logger, driver);
+			Assert.fail("Failed at TestStep" + testStep + e);
+
+		}
+	}}
 	

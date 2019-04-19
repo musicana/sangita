@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite">
+<suite name="Smoke" parallel="tests">
   <test name="Test">
     <classes>
-      <class name="testcases.LoginGmail"/>
-      <class name="testcases.VerifyPassword"/>
+      
+      
+      <class name="myAR.MYAR_03_UploadAssets"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

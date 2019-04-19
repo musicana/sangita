@@ -9,7 +9,7 @@ public class Constants {
 	 */
 	
 	public static String Browser="chrome";
-	public static final String BaseURL="http://www.gmail.com";
+	public static final String BaseURL="http://gmail.com";
 	
 	public static final String userName1 = "ersangitayadav0@gmail.com";
 	public static final String password1= "Mindfire@1";

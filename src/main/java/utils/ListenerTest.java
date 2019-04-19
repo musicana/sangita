@@ -13,7 +13,6 @@ import basePackage.GetBrowserInstance;
 public class ListenerTest implements ITestListener {
 		WebDriver driver;
 		GetBrowserInstance browser = new GetBrowserInstance();
-		ExtentLoging el = new ExtentLoging();
 		static File file;
 		static SimpleDateFormat sdfDate = new SimpleDateFormat("dd-MM-yyyy,HH.mm.ss");//dd/MM/yyyy
 	    static Date now = new Date();
