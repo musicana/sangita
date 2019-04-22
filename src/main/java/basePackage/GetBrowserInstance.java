@@ -65,11 +65,9 @@ public class GetBrowserInstance  {
 	//Function to launch Firefox.
 	private WebDriver firefox() {
 
-		System.setProperty("webdriver.firefox.marionette", System.getProperty("user.dir")+"\\Drivers\\geckodriver.exe");
-
-
-		//	FirefoxProfile firefoxProfile = new FirefoxProfile();
-		//	firefoxProfile.setPreference("browser.private.browsing.autostart",true);
+		System.setProperty("webdriver.firefox.marionette","D:\\Downloads\\GeckoDriver.exe");
+		FirefoxProfile firefoxProfile = new FirefoxProfile();
+		firefoxProfile.setPreference("browser.private.browsing.autostart",true);
 		WebDriver driver = new FirefoxDriver();
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 		capabilities.setCapability("marionette",true);
@@ -81,24 +79,25 @@ public class GetBrowserInstance  {
 	private WebDriver chrome() {
 
 		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\Drivers\\chromedriver.exe");
+		
+		
 		ChromeOptions options = new ChromeOptions();
+		WebDriver driver = new ChromeDriver(options);
 		//	DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+	
+		
 		options.addArguments("incognito");
 		options.addArguments("disable-extensions");
 		options.addArguments("--start-maximized");
+		
 
 		options.addArguments("disable-infobars");
 		options.setCapability(ChromeOptions.CAPABILITY, options);
 
 
 		options.addArguments("--verbose");
-		options.addArguments("--whitelisted-ips=''");
-		
-
-
-
-
-		WebDriver driver = new ChromeDriver(options);
+	//	options.addArguments("--whitelisted-ips=''");
+	//	options.addArguments("--proxy-server=73.0.3683.68:9515");
 
 		options.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR,UnexpectedAlertBehaviour.IGNORE);
 		return driver;
